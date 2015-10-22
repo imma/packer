@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+function bootstrap {
+  local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local url_packer='https://dl.bintray.com/mitchellh/packer/packer_0.8.6_darwin_amd64.zip'
+
+  case "$(uname -s)" in
+    Darwin)
+     local tmp_packer="$(mktemp -t XXXXXX)"
+     trap "$(printf "rm -f '%q'" "$tmp_packer")" EXIT
+     curl -L -o "$tmp_packer" "$url_packer"
+     cd bin
+     unzip -o "$tmp_packer"
+     ;;
+  esac
+}
+
+bootstrap
