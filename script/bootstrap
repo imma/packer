@@ -4,17 +4,15 @@ function bootstrap {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local url_packer='https://dl.bintray.com/mitchellh/packer/packer_0.8.6_darwin_amd64.zip'
+  local url_packer_Darwin='https://dl.bintray.com/mitchellh/packer/packer_0.8.6_darwin_amd64.zip'
+  local url_packer_Linux='https://releases.hashicorp.com/packer/0.8.6/packer_0.8.6_linux_amd64.zip'
 
-  case "$(uname -s)" in
-    Darwin)
-     local tmp_packer="$(mktemp -t XXXXXX)"
-     trap "$(printf "rm -f '%q'" "$tmp_packer")" EXIT
-     curl -L -o "$tmp_packer" "$url_packer"
-     cd bin
-     unzip -o "$tmp_packer"
-     ;;
-  esac
+  local tmp_packer="$(mktemp -t XXXXXX)"
+  trap "$(printf "rm -f '%q'" "$tmp_packer")" EXIT
+  local url_packer="url_packer_$(uname -s)"
+  curl -L -o "$tmp_packer" "${!url_packer}"
+  cd bin
+  unzip -o "$tmp_packer"
 }
 
 bootstrap
