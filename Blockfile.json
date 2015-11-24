@@ -4,7 +4,8 @@
       "virtualbox",
       "digitalocean",
       "aws",
-      "gcloud"
+      "gcloud",
+      "docker"
     ]
   ]
 }
