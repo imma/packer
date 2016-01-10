@@ -2,9 +2,7 @@
   "require": [
     [
       "virtualbox",
-      "digitalocean",
       "aws",
-      "gcloud",
       "docker"
     ]
   ]
