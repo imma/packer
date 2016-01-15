@@ -4,7 +4,7 @@ function bootstrap {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local url_packer_Darwin='https://dl.bintray.com/mitchellh/packer/packer_0.8.6_darwin_amd64.zip'
+  local url_packer_Darwin='https://releases.hashicorp.com/packer/0.8.6/packer_0.8.6_darwin_amd64.zip'
   local url_packer_Linux='https://releases.hashicorp.com/packer/0.8.6/packer_0.8.6_linux_amd64.zip'
 
   local tmp_packer="$(mktemp -t XXXXXX)"
