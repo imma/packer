@@ -10,7 +10,7 @@ function bootstrap {
   local tmp_packer="$(mktemp -t XXXXXX)"
   trap "$(printf "rm -f '%q'" "$tmp_packer")" EXIT
   local url_packer="url_packer_$(uname -s)"
-  curl -s -L -o "$tmp_packer" "${!url_packer}"
+  curl -sS -L -o "$tmp_packer" "${!url_packer}"
   cd bin
   unzip -o "$tmp_packer"
   (set +f; chmod 755 packer packer-*)
