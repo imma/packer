@@ -7,13 +7,14 @@ function bootstrap {
   local url_packer_Darwin='https://releases.hashicorp.com/packer/0.9.0/packer_0.9.0_darwin_amd64.zip'
   local url_packer_Linux='https://releases.hashicorp.com/packer/0.9.0/packer_0.9.0_linux_amd64.zip'
 
-  local tmp_packer="$(mktemp -t XXXXXX)"
-  trap "$(printf "rm -f '%q'" "$tmp_packer")" EXIT
   local url_packer="url_packer_$(uname -s)"
-  curl -sS -L -o "$tmp_packer" "${!url_packer}"
-  cd bin
-  unzip -o "$tmp_packer"
+  local fnm_packer="$(basename "${!url_packer}")"
+  cache curl "$fnm_packer" "${!url_packer}" -sL -L
+
+  pushd bin
+  unzip -o "${BASEBOX_CACHE}/curl/$fnm_packer"
   (set +f; chmod 755 packer)
+  popd
 }
 
 bootstrap
