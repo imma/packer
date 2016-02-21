@@ -13,7 +13,7 @@ function bootstrap {
   curl -sS -L -o "$tmp_packer" "${!url_packer}"
   cd bin
   unzip -o "$tmp_packer"
-  (set +f; chmod 755 packer packer-*)
+  (set +f; chmod 755 packer)
 }
 
 bootstrap
