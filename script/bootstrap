@@ -9,7 +9,7 @@ function bootstrap {
 
   local url_packer="url_packer_$(uname -s)"
   local fnm_packer="$(basename "${!url_packer}")"
-  cache curl "$fnm_packer" "${!url_packer}" -sL -L
+  cache curl "$fnm_packer" "${!url_packer}"
 
   pushd bin
   unzip -o "${BASEBOX_CACHE}/curl/$fnm_packer"
