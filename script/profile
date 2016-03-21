@@ -4,7 +4,8 @@ function profile {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   PATH="$shome/bin:$PATH"
 
-  export PACKER_TMP_DIR="${BASEBOX_CACHE}/tmp"
+  export PACKER_TMP_DIR="${BASEBOX_CACHE}/tmp/packer"
+  mkdir -p "$PACKER_TMP_DIR"
 }
 
 profile
