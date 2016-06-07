@@ -1,5 +1,1 @@
-Setup
-=====
-
-For bash, source `script/profile` to expose the Packer commands.  Requires the
-`defn/app` project installed and sourced.
+Visit http://defn.sh/packer/ or open `docs/index.html`
