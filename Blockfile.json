@@ -1,10 +1,5 @@
 {
   "require": [
-    "curl",
-    [
-      "virtualbox",
-      "aws",
-      "docker"
-    ]
+    "curl"
   ]
 }
