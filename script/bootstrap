@@ -4,8 +4,8 @@ function bootstrap {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local url_packer_Darwin='https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_darwin_amd64.zip'
-  local url_packer_Linux='https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_linux_amd64.zip'
+  local url_packer_Darwin="https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_darwin_amd64.zip"
+  local url_packer_Linux="https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip"
 
   local url_packer="url_packer_$(uname -s)"
   local fnm_packer="$(basename "${!url_packer}")"
