@@ -1,5 +1,8 @@
 {
   "require": [
     "curl"
-  ]
+  ],
+  "versions": {
+    "packer": "hashicorp/packer"
+  }
 }
